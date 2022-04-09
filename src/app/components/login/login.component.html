@@ -1,0 +1,16 @@
+<main class="form-signin">
+    <form #loginForm="ngForm" (ngSubmit)="login(loginForm)" class="form-signin" >
+      <h1 class="h3 mb-3 fw-normal">Lütfen Giriş Yapın</h1>
+  
+      <div class="form-floating">
+        <input type="text" #username="ngModel" [(ngModel)]="user.username" class="form-control" id="username" [ngModelOptions]="{standalone: true}" placeholder="Kullanıcı Adı" required autofocus>
+        <label for="username">Kullanıcı Adı</label>
+        <div class="invalid-feedback">Bu alanın doldurulması zorunludur</div>
+      </div>
+      <div class="form-floating">
+        <input type="password" #password="ngModel" [(ngModel)]="user.password" class="form-control" id="password"  [ngModelOptions]="{standalone: true}" placeholder="Şifre" required>
+        <label for="password">Şifre</label>
+      </div>
+      <button class="w-100 btn btn-lg btn-primary" type="submit">Giriş Yap</button>
+    </form>
+  </main>

@@ -1,0 +1,4 @@
+<ul class="list-group list-group-horizontal">
+    <button routerLink="/home" class="btn btn-primary list-group-item">Tümü</button>
+    <button *ngFor="let category of categories" routerLink="/products/category/{{category.id}}" class="btn btn-primary list-group-item" >{{category.categoryName}}</button>
+  </ul>

@@ -1,0 +1,31 @@
+<main class="form">
+    <form #addProductForm="ngForm" (ngSubmit)="addProduct(addProductForm)" class="form-signin needs-validation" novalidate >
+      <h1 class="h3 mb-3 fw-normal">Ürün eklemek için bilgilerin tümünü doldurunuz</h1>
+      <div class="form-floating">
+        <input type="text" #productName="ngModel" [(ngModel)]="product.productName" class="form-control" id="productName" [ngModelOptions]="{standalone: true}" placeholder="Ürün Adı" required autofocus>
+        <label for="productName">Ürün Adı</label>
+      </div>
+      <div class="form-floating">
+        <input type="number" #unitsPrice="ngModel" [(ngModel)]="product.unitPrice" class="form-control" id="unitPrice" [ngModelOptions]="{standalone: true}" placeholder="Ürünün birim fiyatı" required >
+        <label for="unitPrice">Ürünün birim fiyatı</label>
+      </div>
+      <div class="form-floating">
+        <input type="number" #unitsInStock="ngModel" [(ngModel)]="product.unitsInStock" class="form-control" id="unitsInStock" [ngModelOptions]="{standalone: true}" placeholder="Stoktaki adet" required >
+        <label for="unitsInStock">Stoktaki adet</label>
+      </div>
+      <div class="form-floating">
+        <input type="text" #descripton="ngModel" [(ngModel)]="product.description" class="form-control" id="description" [ngModelOptions]="{standalone: true}" placeholder="Ürün Açıklaması" required>
+        <label for="description">Ürün Açıklaması</label>
+      </div>
+      <div class="form-floating">
+        <input type="text" #imageurl="ngModel" [(ngModel)]="product.imageUrl" class="form-control" id="imageUrl"  [ngModelOptions]="{standalone: true}" placeholder="Ürün görseli" required>
+        <label for="imageUrl">Ürün görseli URL adresi</label>
+      </div>
+      <div class="form-floating">
+        <select class="form-select" id="categoryId" #categoryId="ngModel" [(ngModel)]="product.categoryId" [ngModelOptions]="{standalone: true}" required>
+            <option *ngFor="let category of categories" [value]="category.id">{{category.categoryName}}</option>
+        </select>
+        </div>
+      <button class="w-100 btn btn-lg btn-primary" type="submit">Ürün Ekle</button>
+    </form>
+  </main>

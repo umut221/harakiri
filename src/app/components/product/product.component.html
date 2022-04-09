@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="mb-3">
+    <label for="searchProduct" class="form-label">Ürün ara</label>
+    <input [(ngModel)]="filterText" type="text" class="form-control" id="searchProduct"
+      placeholder="Aranacak ürünün ismini giriniz">
+    <div *ngIf="filterText" class="alert alert-warning" role="alert">
+      İsminde {{filterText}} geçen ürünler listeleniyor.
+    </div>
+  </div>
+  <div class="row">
+    <div *ngFor="let product of products | productFilter:filterText" class="card m-4" style="width: 15rem;">
+      <img src="{{product.imageUrl}}" class="card-img-top">
+      <div class="card-body">
+        <h4 class="card-title">{{product.productName}}</h4>
+        <h5 class="card-title">{{product.unitPrice | currency}}</h5>
+        <h6 class="card-title">Stoktaki adedi {{product.unitsInStock}}</h6>
+        <p class="card-text">{{product.description}}</p>
+      </div>
+      <button *ngIf="isLoggedUser()" class="btn btn-primary">Sepete Ekle</button>
+      <div *ngIf="isAdminLoggedIn()" class="button-group">
+        <button class="btn btn-primary">Düzenle</button>
+        <button (click)="deleteProduct(product.id)" class="btn btn-danger">Sil</button>
+      </div>
+    </div>
+  </div>
+
+</div>

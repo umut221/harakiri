@@ -1,0 +1,35 @@
+<nav class="py-2 bg-light border-bottom">
+  <div class="container d-flex flex-wrap">
+    <ul class="nav me-auto">
+      <li class="nav-item"><a routerLink="/home" class="nav-link link-dark px-2 active" aria-current="page">Anasayfa</a></li>
+      <li class="nav-item"><a routerLink="/contact" class="nav-link link-dark px-2">İletişim</a></li>
+      <li class="nav-item"><a routerLink="/about" class="nav-link link-dark px-2">Hakkımızda</a></li>
+      <li *ngIf="isAdminLoggedIn()"><app-admin-panel></app-admin-panel></li>
+    </ul>
+    <form class="d-flex">
+      <div *ngIf="!isLoggedIn() && !isAdminLoggedIn()" class="btn-group">
+        <button class="btn btn-primary" routerLink="/login">Giriş Yap</button>
+        <button routerLink="signup" class="btn btn-success">Üye Ol</button>
+      </div>
+    </form>
+    <form *ngIf="isLoggedIn() || isAdminLoggedIn()"  class="d-flex">
+      <button *ngIf="isLoggedIn()" routerLink="/cart" class="btn-success">Sepete Git</button>
+      <button *ngIf="isLoggedIn()" routerLink="/myProfile" class="btn-primary">Profilim</button>
+      <button (click)="logOut()" class="btn btn-secondary">Çıkış Yap</button>
+    </form>
+  </div>
+</nav>
+<header class="py-3 mb-4 border-bottom">
+  <div class="container d-flex flex-wrap justify-content-center">
+    <a href="/" class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto text-dark text-decoration-none">
+      <svg class="bi me-2" width="40" height="32">
+        <use xlink:href="#bootstrap" />
+      </svg>
+      <span class="fs-4">Kalamarge Inc.</span>
+      
+    </a>
+    <div class="d-flex"><p class="title">{{time$ | async}}</p></div>
+  </div>
+ 
+
+</header>

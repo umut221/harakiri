@@ -1,0 +1,26 @@
+<main class="form-signin">
+    <form #signUpForm="ngForm" (ngSubmit)="signUp(signUpForm)" class="form-signin" >
+      <h1 class="h3 mb-3 fw-normal">Üye olmak için bilgileri eksiksiz doldurun</h1>
+      <div class="form-floating">
+        <input type="text" #firstname="ngModel" [(ngModel)]="user.firstname" class="form-control" id="firstname" [ngModelOptions]="{standalone: true}" placeholder="İsim" required autofocus>
+        <label for="firstname">İsim</label>
+      </div>
+      <div class="form-floating">
+        <input type="text" #lastname="ngModel" [(ngModel)]="user.lastname" class="form-control" id="lastname" [ngModelOptions]="{standalone: true}" placeholder="Soyisim" required >
+        <label for="lastname">Soyisim</label>
+      </div>
+      <div class="form-floating">
+        <input type="email" #email="ngModel" [(ngModel)]="user.email" class="form-control" id="email" [ngModelOptions]="{standalone: true}" placeholder="Email" required >
+        <label for="email">Email</label>
+      </div>
+      <div class="form-floating">
+        <input type="text" #username="ngModel" [(ngModel)]="user.username" class="form-control" id="username" [ngModelOptions]="{standalone: true}" placeholder="Kullanıcı Adı" required>
+        <label for="username">Kullanıcı Adı</label>
+      </div>
+      <div class="form-floating">
+        <input type="password" #password="ngModel" [(ngModel)]="user.password" class="form-control" id="password"  [ngModelOptions]="{standalone: true}" placeholder="Şifre" required>
+        <label for="password">Şifre</label>
+      </div>
+      <button class="w-100 btn btn-lg btn-primary" type="submit">Üye Ol</button>
+    </form>
+  </main>
